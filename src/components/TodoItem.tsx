@@ -1,16 +1,12 @@
 import React from "react";
-
+import classes from "@/components/TodoItem.module.css";
 type Props = {
   id: string;
   text: string;
 };
 
 const TodoItem: React.FC<Props> = (props) => {
-  return (
-    <li>
-      <span>{props.id}</span> <b>{props.text}</b>
-    </li>
-  );
+  return <li className={classes.item}>{props.text}</li>;
 };
 
 export default TodoItem;

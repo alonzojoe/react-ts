@@ -1,6 +1,7 @@
 import React from "react";
 import TodoItem from "@/components/TodoItem";
 import Todo from "@/models/todo";
+import classes from "@/components/Todos.module.css";
 
 type Props = {
   children?: React.ReactNode;
@@ -9,7 +10,7 @@ type Props = {
 
 const Todos: React.FC<Props> = (props) => {
   return (
-    <ul>
+    <ul className={classes.todos}>
       {props.items.map((item) => (
         <TodoItem
           id={item.id}
