@@ -13,11 +13,15 @@ function App() {
     setTodos((prevTodo) => [newTodo, ...prevTodo]);
   };
 
+  const removeTodo = (id: string) => {
+    setTodos((todos) => todos.filter((item) => item.id !== id));
+  };
+
   return (
     <>
       <h1>React TypeScript</h1>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos removeTodo={removeTodo} items={todos} />
     </>
   );
 }
