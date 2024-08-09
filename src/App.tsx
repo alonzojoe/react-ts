@@ -1,18 +1,23 @@
+import { useState } from "react";
 import NewTodo from "@/components/NewTodo";
 import Todos from "@/components/Todos";
 import Todo from "@/models/todo";
 import "./App.css";
 
 function App() {
-  const todos = [
-    new Todo("Learn TypeScript"),
-    new Todo("Learn Type Alias / Definitions"),
-  ];
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  console.log("App component is re-rendered");
+
+  const addTodoHandler = (value: string) => {
+    const newTodo = new Todo(value);
+    setTodos((prevTodo) => [newTodo, ...prevTodo]);
+  };
 
   return (
     <>
       <h1>React TypeScript</h1>
-      <NewTodo />
+      <NewTodo onAddTodo={addTodoHandler} />
       <Todos items={todos} />
     </>
   );
