@@ -1,19 +1,19 @@
+import NewTodo from "@/components/NewTodo";
 import Todos from "@/components/Todos";
+import Todo from "@/models/todo";
 import "./App.css";
 
-const TODOS = [
-  "Learn TypeScript",
-  "Learn Types",
-  "Learn Type Alias / Definitions",
-  "Learn Interface",
-  "Learn Generics",
-];
-
 function App() {
+  const todos = [
+    new Todo("Learn TypeScript"),
+    new Todo("Learn Type Alias / Definitions"),
+  ];
+
   return (
     <>
       <h1>React TypeScript</h1>
-      <Todos items={TODOS} />
+      <NewTodo />
+      <Todos items={todos} />
     </>
   );
 }
