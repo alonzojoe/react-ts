@@ -7,6 +7,7 @@ type Props = {
   children?: React.ReactNode;
   items: Todo[];
   removeTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
 };
 
 const Todos: React.FC<Props> = (props) => {
@@ -14,9 +15,11 @@ const Todos: React.FC<Props> = (props) => {
     <ul className={classes.todos}>
       {props.items.map((item) => (
         <TodoItem
-          onRemoveTodo={props.removeTodo}
+          onToggle={props.toggleTodo.bind(null, item.id)}
+          onRemoveTodo={props.removeTodo.bind(null, item.id)}
           id={item.id}
           text={item.text}
+          completed={item.completed}
           key={`${item.id}-${item.text}`}
         />
       ))}

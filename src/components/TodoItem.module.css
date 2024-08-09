@@ -3,9 +3,36 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   background-color: #f7f5ef;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item span {
   cursor: pointer;
+}
+
+.item span.done {
+  text-decoration: line-through;
 }
 
 .item:hover {
   background: #e6dfcd;
+}
+
+.item button {
+  font: inherit;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.item button.plain {
+  background-color: #43a558;
+  border: 1px solid #43a558;
+}
+
+.item button.danger {
+  background-color: #b44d46;
+  border: 1px solid #b44d46;
 }

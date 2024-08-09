@@ -17,11 +17,20 @@ function App() {
     setTodos((todos) => todos.filter((item) => item.id !== id));
   };
 
+  const toggleTodo = (id: string) => {
+    setTodos((todos) =>
+      todos.map((todo) => ({
+        ...todo,
+        completed: todo.id === id ? !todo.completed : todo.completed,
+      }))
+    );
+  };
+
   return (
     <>
       <h1>React TypeScript</h1>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos removeTodo={removeTodo} items={todos} />
+      <Todos toggleTodo={toggleTodo} removeTodo={removeTodo} items={todos} />
     </>
   );
 }
